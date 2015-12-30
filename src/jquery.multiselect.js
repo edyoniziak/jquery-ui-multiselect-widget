@@ -1,3 +1,7 @@
+/* Textura Corp. fork of jQuery UI MultiSelect Widget
+ * GitHub: https://github.com/texturacorp/jquery-ui-multiselect-widget
+ */
+
 /* jshint forin:true, noarg:true, noempty:true, eqeqeq:true, boss:true, undef:true, curly:true, browser:true, jquery:true */
 /*
  * jQuery MultiSelect UI Widget 1.14pre
