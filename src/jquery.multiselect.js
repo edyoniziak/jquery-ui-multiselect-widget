@@ -341,6 +341,7 @@
         switch(e.which) {
           case 9: // tab
             case 27: // esc
+            case 13: // enter
             self.close();
           break;
           case 38: // up
@@ -348,9 +349,6 @@
             case 37: // left
             case 39: // right
             self._traverse(e.which, this);
-          break;
-          case 13: // enter
-            $(this).find('input')[0].click();
           break;
         }
       })
@@ -447,7 +445,17 @@
       var moveToLast = which === 38 || which === 37;
 
       // select the first li that isn't an optgroup label / disabled
-      var $next = $start.parent()[moveToLast ? 'prevAll' : 'nextAll']('li:not(.ui-multiselect-disabled, .ui-multiselect-optgroup-label)').first();
+      var $next;
+      switch(which){
+          case 40: // down
+          case 39: // right
+              $next = $start.parent()['next']('li:not(.ui-multiselect-disabled, .ui-multiselect-optgroup-label)').first();
+              break;
+          case 38: // up
+          case 37: // left
+              $next = $start.parent()['prev']('li:not(.ui-multiselect-disabled, .ui-multiselect-optgroup-label)').first();
+              break;
+      }
 
       // if at the first/last element
       if(!$next.length) {
